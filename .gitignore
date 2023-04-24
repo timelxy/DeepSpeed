@@ -29,3 +29,4 @@ tests/unit/saved_checkpoint/
 # Dev/IDE data
 .vscode
 .theia
+.obsidian
