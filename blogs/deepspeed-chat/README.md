@@ -1,3 +1,7 @@
+
+
+
+
 <div align="center">
 
 # DeepSpeed Chat: Easy, Fast and Affordable RLHF Training of ChatGPT-like Models at All Scales
@@ -20,9 +24,9 @@ These limitations stem from a lack of a robust system design that is capable of 
 
 (i) ***Easy-to-use Training and Inference Experience for ChatGPT Like Models***: A single script capable of taking a pre-trained ==Huggingface model==, running it through all three steps of InstructGPT training using DeepSpeed-RLHF system and producing your very own ChatGPT like model. In addition, we provide an inference API for testing conversation-style interactions after the model is trained.
 
-(ii) ***DeepSpeed-RLHF Pipeline***: DeepSpeed-RLHF pipeline primarily replicates the training pipeline from the InstructGPT paper with careful attention to ensure completeness and one-to-one correspondence with the three-steps that includes a) Supervised Fine-tuning (SFT), b) Reward Model Fine-tuning and c) Reinforcement Learning with Human Feedback (RLHF). Additionally, we offer data abstraction and blending capabilities to enable training with multiple data sources.
+(ii) ***DeepSpeed-RLHF Pipeline***: DeepSpeed-RLHF pipeline primarily replicates the training pipeline from the InstructGPT paper with careful attention to ensure completeness and one-to-one correspondence with the three-steps that includes a) Supervised Fine-tuning (SFT), b) Reward Model Fine-tuning and c) ==Reinforcement Learning with Human Feedback== (RLHF). Additionally, we offer data abstraction and blending capabilities to enable training with multiple data sources.
 
-(iii) ***DeepSpeed-RLHF System***: A robust and sophisticated RLHF system that combines the training and inference prowess of DeepSpeed into single unified Hybrid Engine (DeepSpeed-HE) for RLHF. The Hybrid-Engine is capable of seamlessly transitioning between inference and training modes within RLHF, allowing it to leverage various optimizations from DeepSpeed-Inference such as tensor-parallelism and high-performance transformer kernels for generation, while also benefiting from the multitude of ZeRO- and LoRA-based memory optimization strategies for RL training. DeepSpeed-HE is also aware of the full RLHF pipeline, allowing it to make optimal decisions in terms of memory management and data movement across different phases of RLHF.
+(iii) ***DeepSpeed-RLHF System***: A robust and sophisticated RLHF system that combines the training and inference prowess of DeepSpeed into single unified Hybrid Engine (DeepSpeed-HE) for RLHF. The Hybrid-Engine is capable of seamlessly transitioning between inference and training modes within RLHF, allowing it to leverage various optimizations from DeepSpeed-Inference such as ==tensor-parallelism and high-performance transformer kernels== for generation, while also benefiting from the multitude of ==ZeRO- and LoRA-based memory optimization== strategies for RL training. DeepSpeed-HE is also aware of the full RLHF pipeline, allowing it to make optimal decisions in terms of memory management and data movement across different phases of RLHF.
 
 
 DeepSpeed-RLHF system is capable of unparalleled efficiency at scale, making complex RLHF training fast, affordable, and easily accessible to the AI community:
@@ -319,3 +323,16 @@ DeepSpeed-Chat is part of the bigger DeepSpeed ecosystem comprising of a multitu
 * You can also follow us on our [English Twitter](https://twitter.com/MSFTDeepSpeed) and [Japanese Twitter](https://twitter.com/MSFTDeepSpeedJP) for latest news on DeepSpeed.
 
 DeepSpeed welcomes your contributions! We encourage you to report issues, contribute PRs, and join discussions on the [DeepSpeed GitHub](https://github.com/microsoft/DeepSpeed/) page. Please see our [contributing guide](https://github.com/microsoft/DeepSpeed/blob/master/CONTRIBUTING.md) for more details. We are open to collaborations with universities, research labs, companies, such as those working together on deep learning research, applying DeepSpeed to empower real-world AI models and applications, and so on. For such requests (and other requests unsuitable for GitHub), please directly email to deepspeed-info@microsoft.com.
+
+
+
+
+# Note
+instrcutGPT？OpenAI在2022年的一篇[论文](https://arxiv.org/abs/2203.02155)，主要基于GPT3，通过接收人的反馈指令来训练语言模型
+
+
+- 优势：快；可以在azure上300刀左右训练；也可以在单块民用级别的GPU上训练，适合个人data scientists
+- 架构：3步走
+	1. Supervised Fine-tuning (SFT)
+	2. Reward Model Fine-tuning
+	3. Reinforcement Learning with Human Feedback (RLHF)
